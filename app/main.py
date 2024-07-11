@@ -22,13 +22,17 @@ class CarWashStation:
         average_rating: float,
         count_of_ratings: int,
     ) -> None:
-        assert 1.0 <= distance_from_city_center <= 10.0, "distance_from_city_center must be in range [1.0, 10.0]"
+        assert (
+            1.0 <= distance_from_city_center <= 10.0
+        ), "distance_from_city_center must be in range [1.0, 10.0]"
         self.distance_from_city_center = distance_from_city_center
 
         assert 1 <= clean_power <= 10, "clean_power must be in range [1, 10]"
         self.clean_power = clean_power
 
-        assert 1.0 <= average_rating <= 5.0, "average_rating must be in range [1.0, 5.0]"
+        assert (
+            1.0 <= average_rating <= 5.0
+        ), "average_rating must be in range [1.0, 5.0]"
         self.average_rating = average_rating
 
         self.count_of_ratings = count_of_ratings
@@ -45,8 +49,10 @@ class CarWashStation:
 
     def calculate_washing_price(self, car: Car) -> float:
         return round(
-            car.comfort_class * (self.clean_power - car.clean_mark)
-            * self.average_rating / self.distance_from_city_center,
+            car.comfort_class
+            * (self.clean_power - car.clean_mark)
+            * self.average_rating
+            / self.distance_from_city_center,
             1,
         )
 
