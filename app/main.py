@@ -5,8 +5,12 @@ class Car:
         clean_mark: int,
         brand: str,
     ) -> None:
+        assert 1 <= comfort_class <= 7, "comfort_class must be in range [1, 7]"
         self.comfort_class = comfort_class
+
+        assert 1 <= clean_mark <= 10, "clean_mark must be in range [1, 10]"
         self.clean_mark = clean_mark
+
         self.brand = brand
 
 
@@ -18,9 +22,15 @@ class CarWashStation:
         average_rating: float,
         count_of_ratings: int,
     ) -> None:
+        assert 1.0 <= distance_from_city_center <= 10.0, "distance_from_city_center must be in range [1.0, 10.0]"
         self.distance_from_city_center = distance_from_city_center
+
+        assert 1 <= clean_power <= 10, "clean_power must be in range [1, 10]"
         self.clean_power = clean_power
+
+        assert 1.0 <= average_rating <= 5.0, "average_rating must be in range [1.0, 5.0]"
         self.average_rating = average_rating
+
         self.count_of_ratings = count_of_ratings
 
     def wash_single_car(self, car: Car) -> float:
